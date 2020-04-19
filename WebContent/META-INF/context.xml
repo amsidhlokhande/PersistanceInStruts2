@@ -1,0 +1,18 @@
+<!--
+
+    Context configuration file for the Tomcat Balancer Web App
+    This is only needed to keep the distribution small and avoid duplicating
+    commons libraries
+
+    $Id: context.xml,v 1.1 2004/08/26 17:03:34 remm Exp $
+
+-->
+
+
+<Context >
+          <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
+               maxActive="100" maxIdle="30" maxWait="10000"
+               username="root" password="tiger" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/Test"/>
+</Context>
+

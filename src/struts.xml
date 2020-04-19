@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <package name="main" extends="struts-default">
+        <default-action-ref name="Employee_list"/>
+        <action name="Employee_list" method="list" class="app11a.EmployeeAction">
+            <result>Employee.jsp</result>
+            <result name="input">Employee.jsp</result>
+        </action>
+        <action name="Employee_create" method="create" 
+        		class="app11a.EmployeeAction">
+            <result type="redirectAction">Employee_list</result>
+            <result name="input">Employee.jsp</result>
+        </action>
+
+        <action name="Employee_edit" method="edit" 
+        		class="app11a.EmployeeAction">
+       		<interceptor-ref name="paramsPrepareParamsStack"/>
+            <result>EditEmployee.jsp</result>
+        </action>
+        <action name="Employee_update" method="update" 
+        		class="app11a.EmployeeAction">
+            <result type="redirectAction">Employee_list</result>
+        </action>
+        <action name="Employee_delete" method="delete" 
+        		class="app11a.EmployeeAction">
+            <result>Employee.jsp</result>
+        </action>
+        
+    </package>
+
+</struts>
